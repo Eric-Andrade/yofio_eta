@@ -1,0 +1,42 @@
+{
+  "env": {
+      "production": {
+          "plugins": [
+              // "transform-remove-console",
+              ["module-resolver", {
+                "root": ["./src"],
+                "alias": {
+                  "@components": "./src/components",
+                  "@screens": "./src/screens",
+                  "@etaui": "./src/etaui",
+                  "@utils": "./src/utils",
+                  "@functions": "./src/etaui/functions",
+                  "@assets": "./assets",
+                  "@icons": "./src/components/commons/Icons",
+                  "@redux": "./src/redux"
+                }
+              }
+            ]
+          ]
+      },
+      "development": {
+          "plugins": [
+              // "transform-remove-console",
+              ["module-resolver", {
+                "root": ["./src"],
+                "alias": {
+                  "@components": "./src/components",
+                  "@screens": "./src/screens",
+                  "@etaui": "./src/etaui",
+                  "@utils": "./src/utils",
+                  "@functions": "./src/etaui/functions",
+                  "@assets": "./assets",
+                  "@icons": "./src/components/commons/Icons",
+                  "@redux": "./src/redux"
+                }
+              }
+            ]
+          ]
+      }
+    }
+}
