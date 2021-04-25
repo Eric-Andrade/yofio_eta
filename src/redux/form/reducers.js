@@ -14,7 +14,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FORM_SUCCESS:
       if (action.payload.firstname !== null && action.payload.lastname !== null && action.payload.email !== null && action.payload.birthdate !== null) {
-        // console.log('FORM_SUCCESS: ', action.payload)
         state.firstname = action.payload.firstname
         state.lastname = action.payload.lastname
         state.email = action.payload.email,
@@ -26,14 +25,14 @@ const reducer = (state = initialState, action) => {
           name: action.payload.firstname,
           lastName: action.payload.lastname,
           birthdate: action.payload.birthdate,
-          // photo: action.payload.image,
+          photo: action.payload.image,
           location: {
             latitude: action.payload.location.getLatitude,
             longitude: action.payload.location.getLongitude
           }
         })
         
-        axios.post('https://tech-challenge-v2.herokuapp.com/registration', {
+        axios.post('http://tech-challenge-v2.herokuapp.com/registration', {
           name: action.payload.firstname,
           lastName: action.payload.lastname,
           birthdate: action.payload.birthdate,
@@ -44,10 +43,10 @@ const reducer = (state = initialState, action) => {
           }
         })
         .then(function (response) {
-          console.log('[POST] Success: ', response);
+          console.log('[FORM_SUCCESS] Success: ', response);
         })
         .catch(function (error) {
-          console.log(error);
+          console.warn('[FORM_SUCCESS] Error: ', error);
         })
       }
 

@@ -44,7 +44,7 @@ const Root = styled.View`
 	background-color: #f9f9f9;
 `
 const HeadContainer = styled.View`
-    flex: 0.4;
+    flex: 0.5;
 	width: ${width}px;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +69,6 @@ const FormContainer = styled.View`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-vertical: 40px;
     background-color: transparent;
 `
 const TextInputsContainer = styled.View`
