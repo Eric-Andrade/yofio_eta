@@ -33,7 +33,7 @@ const ETAButtonFilled = ({
 				<Touchable
 					style={{
 						width,
-						backgroundColor: disabled ? '#333' : colorButton,
+						backgroundColor: disabled ? '#888' : colorButton,
 						paddingLeft: padding || 20,
 						paddingRight: padding || 20,
 						borderRadius,
@@ -50,7 +50,7 @@ const ETAButtonFilled = ({
 						// }
 						color={
 							disabled
-							?	'#333'
+							?	'#eee'
 							:	colorButton === 'white' ? '#333' : 'white'
 						}
 						align={align}>

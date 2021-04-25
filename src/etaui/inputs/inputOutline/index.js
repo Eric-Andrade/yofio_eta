@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import styled, { ThemeContext } from 'styled-components/native'
+import React from 'react'
+import styled from 'styled-components/native'
 import { useColorScheme } from 'react-native'
 import TextInputMask from 'react-native-text-input-mask'
 

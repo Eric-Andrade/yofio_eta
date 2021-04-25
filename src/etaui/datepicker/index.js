@@ -1,36 +1,50 @@
 import React, { useState, useEffect } from 'react'
-import { View } from 'react-native'
+import { View, Platform } from 'react-native'
 import { ETAButtonOutline } from '@etaui'
 import DateTimePicker from '@react-native-community/datetimepicker'
 
 const ETADatePicker = () => {
-    const [date, setDate] = useState(new Date(1598051730000))
-    const [mode, setMode] = useState('date')
-    const [show, setShow] = useState(false)
+    const [ date, setdate ] = useState(new Date(1598051730000))
+    const [ mode, setmode ] = useState('date')
+    const [ show, setshow ] = useState(false)
+    const [ title, settitle ] = useState(false)
+    const [ birthdate, setbirthdate ] = useState('Fecha de nacimiento')
   
     const onChange = (event, selectedDate) => {
-      const currentDate = selectedDate || date
-      setShow(Platform.OS === 'ios')
-      setDate(currentDate)
-    }
-  
+        settitle(true)
+        const currentDate = selectedDate || date
+        setshow(Platform.OS === 'ios')
+        setdate(currentDate)
+
+        let yearconverted = currentDate.getFullYear()
+        let monthconverted = ('0' + (currentDate.getMonth() + 1)).slice(-2)
+        let dayconverted =
+        Platform.OS === 'ios'
+        ? ('0' + (currentDate.getDate() + 1)).slice(-2)
+        : ('0' + currentDate.getDate()).slice(-2)
+        // let dayconverted = currentDate.getDate()
+        var _completeDate = `${yearconverted}-${monthconverted}-${dayconverted}`
+        setbirthdate(_completeDate)
+  }
+
     const showMode = (currentMode) => {
-      setShow(true)
-      setMode(currentMode)
+      setshow(true)
+      setmode(currentMode)
     }
 
     const showDatepicker = () => {
-        showMode('date');
-    };
+        showMode('date')
+    }
     
     return (
         <View>
             <ETAButtonOutline
-				title='Selecciona tu fecha de nacimiento'
+				title={title ? `${birthdate}` : `Fecha de nacimiento`}
 				onPress={showDatepicker}
-				colorButton='#333'
+				borderColor='#333'
+                borderWidth={0.3}
 				padding={10}
-				width={250}
+				width={270}
 				borderRadius={3}
 			/>
             

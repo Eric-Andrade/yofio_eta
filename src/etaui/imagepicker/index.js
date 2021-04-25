@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 import { ETAButtonOutline } from '@etaui'
 import ImagePicker from 'react-native-image-crop-picker'
@@ -16,6 +16,20 @@ const ETAImagePicker = ({type, titleButton}) => {
                     useFrontCamera: true,
                 }).then(image => {
                     console.log('Image choose')
+                }).catch(error => {
+                    console.log('[ETAImagePicker] error: ', error)
+                })
+                break
+            case 'galery':
+                ImagePicker.openPicker({
+                    compressImageQuality: 1,
+                    multiple: false,
+                    includeBase64: true,
+                    waitAnimationEnd: true,
+                }).then(image => {
+                    console.log('Image choose')
+                }).catch(error => {
+                    console.log('[ETAImagePicker] error: ', error)
                 })
                 break
         }
@@ -26,9 +40,10 @@ const ETAImagePicker = ({type, titleButton}) => {
             <ETAButtonOutline
 				title={titleButton}
 				onPress={() => chooseImage()}
-				colorButton='#333'
+				borderColor='#333'
+                borderWidth={0.3}
 				padding={10}
-				width={250}
+				width={130}
 				borderRadius={3}
 			/>
             
